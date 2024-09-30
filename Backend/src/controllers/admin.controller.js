@@ -43,34 +43,47 @@ const registerAdmin = asyncHandler(async (req, res) => {
 });
 
 const loginAdmin = asyncHandler(async (req, res) => {
-  const { email, password } = req.body;
-
-  if (!email || !password) {
-    return res.status(400).json(new ApiError(400, "Email and password are required"));
-  }
-
-  const admin = await Admin.findOne({ email });
-  if (!admin) {
-    return res.status(400).json(new ApiError(400, "Admin does not exist"));
-  }
-
-  if (!admin.verified) {
-    return res.status(403).json(new ApiError(403, "Admin is not verified. Please verify your account."));
-  }
-
-  const isPasswordValid = await admin.isPasswordCorrect(password);
-  if (!isPasswordValid) {
-    return res.status(401).json(new ApiError(401, "Invalid credentials"));
-  }
-
-  const { accessToken, refreshToken } = await generateAccessAndRefreshTokens(admin._id);
-
-  res
-    .status(200)
-    .cookie("accessToken", accessToken, { httpOnly: true, secure: true })
-    .cookie("refreshToken", refreshToken, { httpOnly: true, secure: true })
-    .json({ message: "Admin logged in successfully", accessToken, refreshToken });
-});
+    const { email, password } = req.body;
+  
+    // Check for email and password in the request body
+    if (!email || !password) {
+      return res.status(400).json(new ApiError(400, "Email and password are required"));
+    }
+  
+    // Restrict login to a specific email
+    const allowedEmail = "ssahamate2020@gmail.com";
+    if (email !== allowedEmail) {
+      return res.status(403).json(new ApiError(403, "Unauthorized: Access is allowed only for admin only"));
+    }
+  
+    // Find the admin by the provided email
+    const admin = await Admin.findOne({ email });
+    if (!admin) {
+      return res.status(400).json(new ApiError(400, "Admin does not exist"));
+    }
+  
+    // Check if the admin account is verified
+    if (!admin.verified) {
+      return res.status(403).json(new ApiError(403, "Admin is not verified. Please verify your account."));
+    }
+  
+    // Validate the password
+    const isPasswordValid = await admin.isPasswordCorrect(password);
+    if (!isPasswordValid) {
+      return res.status(401).json(new ApiError(401, "Invalid credentials"));
+    }
+  
+    // Generate access and refresh tokens
+    const { accessToken, refreshToken } = await generateAccessAndRefreshTokens(admin._id);
+  
+    // Set cookies and send response
+    res
+      .status(200)
+      .cookie("accessToken", accessToken, { httpOnly: true, secure: true })
+      .cookie("refreshToken", refreshToken, { httpOnly: true, secure: true })
+      .json({ message: "Admin logged in successfully", accessToken, refreshToken });
+  });
+  
 
 const logoutAdmin = asyncHandler(async (req, res) => {
   await Admin.findByIdAndUpdate(req.admin._id, { refreshToken: undefined });
@@ -83,70 +96,126 @@ const logoutAdmin = asyncHandler(async (req, res) => {
 });
 
 const sendOtpVerificationEmail = async ({ _id, email }, res) => {
-  const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    service: "gmail",
-    port: 587,
-    secure: true,
-    auth: {
-      user: process.env.AUTH_EMAIL,
-      pass: process.env.AUTH_PASS,
-    },
-  });
-
-  try {
-    const otp = `${Math.floor(1000 + Math.random() * 9000)}`;
-    const mailOptions = {
-      from: process.env.AUTH_EMAIL,
-      to: email,
-      subject: "Verify Your Admin Account",
-      html: `<p>Enter <b>${otp}</b> in the app to verify your email address. This OTP expires in 1 hour.</p>`,
-    };
-
-    const hashedOtp = await bcrypt.hash(otp, 10);
-    const UserOtpVerification = new UserOtpVerification({
-      userId: _id,
-      otp: hashedOtp,
-      expiresAt: Date.now() + 3600000, // 1 hour
+    let transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      service: "gmail",
+      port: 587,
+      secure: true,
+      auth: {
+        user: process.env.AUTH_EMAIL,
+        pass: process.env.AUTH_PASS,
+      },
     });
-
-    await UserOtpVerification.save();
-    await transporter.sendMail(mailOptions);
-    res.json({ status: "Pending", message: "OTP sent to email", data: { userId: _id, email } });
-  } catch (error) {
-    res.status(500).json(new ApiError(500, "Failed to send OTP"));
-  }
-};
-
-const verifyOtp = asyncHandler(async (req, res) => {
-  const { userId, otp } = req.body;
-
-  if (!userId || !otp) {
-    return res.status(400).json(new ApiError(400, "OTP and User ID are required"));
-  }
-
-  const otpRecord = await UserOtpVerification.findOne({ userId });
-  if (!otpRecord) {
-    return res.status(400).json(new ApiError(400, "Invalid OTP or account already verified"));
-  }
-
-  if (otpRecord.expiresAt < Date.now()) {
-    await UserOtpVerification.deleteMany({ userId });
-    return res.status(400).json(new ApiError(400, "OTP has expired"));
-  }
-
-  const isOtpValid = await bcrypt.compare(otp, otpRecord.otp);
-  if (!isOtpValid) {
-    return res.status(400).json(new ApiError(400, "Invalid OTP"));
-  }
-
-  await Admin.findByIdAndUpdate(userId, { verified: true });
-  await UserOtpVerification.deleteMany({ userId });
-
-  res.json({ status: "VERIFIED", message: "Admin verified successfully" });
-});
-
-const resendOtpVerificationCode = async(req,res) => {
+  
+    transporter.verify((error, success) => {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log("Ready for messages");
+        console.log(success);
+      }
+    });
+  
+    try {
+      const otp = `${Math.floor(1000 + Math.random() * 9000)}`;
+  
+      const mailOptions = {
+        from: process.env.AUTH_EMAIL,
+        to: email,
+        subject: "Verify Your Email",
+        html: `<p>Enter <b>${otp}</b> in the app to verify you email address and complete<p>this otp expires in 1 Hour</p></p>`,
+      };
+      const saltrounds = 10;
+      const hashedOtp = await bcrypt.hash(otp, saltrounds);
+      const newUserOtpVerification = new UserOtpVerification({
+        userId: _id,
+        otp: hashedOtp,
+        createdAt: Date.now(),
+        expiresAt: Date.now() + 3600000,
+      });
+  
+      await newUserOtpVerification.save();
+      await transporter.sendMail(mailOptions);
+      res.json({
+        status: "Pending",
+        message: "Verification otp email sent",
+        date: {
+          userId: _id,
+          email,
+        },
+      });
+    } catch (error) {
+      res.json({
+        status: "Failed",
+        message: error.message,
+      });
+    }
+  };
+  
+  const verifyOtp = async (req, res) => {
+    try {
+      let { userId, otp } = req.body;
+  
+      // Check if userId or otp is missing
+      if (!userId || !otp) {
+        return res
+          .status(400)
+          .json(new ApiError(400, "Empty OTP details are not allowed"));
+      }
+  
+      // Find user OTP verification record
+      const userOtpRecord = await UserOtpVerification.findOne({ userId });
+  
+      // Check if no record is found or the record is already verified
+      if (!userOtpRecord) {
+        return res
+          .status(400)
+          .json(
+            new ApiError(
+              400,
+              "Account records do not exist or have already been verified. Please sign up or log in."
+            )
+          );
+      }
+  
+      const { expiresAt, otp: hashedOtp } = userOtpRecord;
+  
+      // Check if the OTP has expired
+      if (expiresAt < Date.now()) {
+        await UserOtpVerification.deleteMany({ userId });
+        return res
+          .status(400)
+          .json(new ApiError(400, "Code has expired. Please request again."));
+      }
+  
+      // Compare the provided OTP with the hashed OTP
+      const validOtp = await bcrypt.compare(otp, hashedOtp);
+  
+      // If the OTP is invalid
+      if (!validOtp) {
+        return res
+          .status(400)
+          .json(new ApiError(400, "Invalid code passed. Check your inbox."));
+      }
+  
+      // If the OTP is valid, update user verification status and delete OTP records
+      await Admin.updateOne({ _id: userId }, { verified: true });
+      await UserOtpVerification.deleteMany({ userId });
+  
+      res.json({
+        status: "VERIFIED",
+        message: `User email verified successfully.`,
+      });
+    } catch (error) {
+      // Handle any errors
+      res.status(500).json({
+        status: "FAILED",
+        message: error.message,
+      });
+    }
+  };
+  
+  const resendOtpVerificationCode = async(req,res) => {
     try {
       let {userId,email} = req.body;
       if(!userId || !email){
