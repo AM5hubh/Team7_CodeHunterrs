@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, Calendar,DollarSign  , MapPin, Users, Award, FileText } from 'lucide-react';
+import { ChevronDown, ChevronUp, Calendar, DollarSign, MapPin, Users, Award, FileText } from 'lucide-react';
 
 const DetailedAboutUs = () => {
     const [openSection, setOpenSection] = useState('');
@@ -155,13 +155,15 @@ const DetailedAboutUs = () => {
                     </Section>
 
 
-                    <Section title="Donations" id="donations" icon={DollarSign  }>
+                    <Section title="Donations" id="donations" icon={DollarSign}>
                         <p className="text-gray-700 mb-4">
                             Contribute to the growth and development of VCET by donating to our scholarship fund, infrastructure development, or research initiatives. Every contribution helps us create a better future for our students.
                         </p>
-                        <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-                            Donate Now
-                        </button>
+                        <a href="http://localhost:5173/contribution">
+                            <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                                Donate Now
+                            </button>
+                        </a>
                     </Section>
                 </div>
             </div>
