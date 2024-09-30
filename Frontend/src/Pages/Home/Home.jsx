@@ -9,6 +9,7 @@ import ListArticles from "./ListArticles";
 import AlumniShowcase from "./AluminiShowcase";
 
 import AlumniCarousel from "../../Components/Carousel/AlumniCarousel.jsx";
+import VCETAlumniConnect from "./VCETAlumniConnect.jsx";
 // import axios from 'axios';
 // import CarouselComponent from "../CarouselComponent/CarouselComponent.jsx";
 // import { UserContext } from "../../../context/userContext.jsx";
@@ -21,7 +22,9 @@ const Home = () => {
     <>
       <AlumniCarousel />
       <DetailedAboutUs />
+      <VCETAlumniConnect />
       <BusinessSection />
+
 
       <ContributeArticle />
       <ListArticles />
