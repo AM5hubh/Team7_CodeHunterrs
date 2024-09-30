@@ -40,16 +40,7 @@ const AlumniShowcase = () => {
                     </div>
                 </div>
 
-                <div>
-                    <h3 className="text-lg sm:text-xl font-semibold text-center mb-4">Companies Founded by VCET Alumni</h3>
-                    <div className="flex flex-wrap justify-center items-center">
-                        {['TechInnovate Solutions', 'EcoSmart Systems', 'HealthTech Pioneers'].map((company, index) => (
-                            <div key={index} className="bg-gray-200 p-3 sm:p-4 m-2 rounded-lg">
-                                <p className="font-semibold text-sm sm:text-base">{company}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
+
             </div>
         </div>
     );
