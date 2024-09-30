@@ -14,6 +14,14 @@ const articleSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    tags: {
+        type: [String], // Array of strings
+        default: ['#AluminiArticle'],    // Default value is an empty array
+    },
+    author: {
+        type: String,
+        required: true, // Author is required
+    },
 }, { timestamps: true });
 
 const Article = mongoose.model('Article', articleSchema);
