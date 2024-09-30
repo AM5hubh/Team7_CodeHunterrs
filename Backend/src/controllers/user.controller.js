@@ -57,8 +57,16 @@ const registerUser = asyncHandler(async (req, res) => {
     fullname,
     email,
     password,
+    phone: req.body.phone,
+    education: req.body.education,
+    location: req.body.location,
+    yearOfPassout: req.body.yearOfPassout,
+    profession: req.body.profession,
+    profile: req.file ? req.file.path : null,
+    coverImage: req.file ? req.file.path : null,
     username: username.toLowerCase(),
-    verified: false, // Set as false until OTP verification is completed
+    verified: false,
+    adminverified: false // Set as false until OTP verification is completed
   });
 
   // Save the user to the database
