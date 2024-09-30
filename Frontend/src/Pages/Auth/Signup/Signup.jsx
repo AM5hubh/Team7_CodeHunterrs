@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showOtpModal, setShowOtpModal] = useState(false);
   const [otp, setOtp] = useState('');
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -58,7 +60,7 @@ const Signup = () => {
       console.log(res);
       toast.success("OTP verified successfully!");
       setShowOtpModal(false);
-      window.location = "/login";
+      navigate("/login")
     } catch (err) {
       toast.error("OTP verification failed. Please try again.");
     }
