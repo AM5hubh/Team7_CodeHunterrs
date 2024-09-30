@@ -7,7 +7,7 @@ const AlumniCarousel = () => {
   const slides = [
     {
       image: 'https://vcet.edu.in/wp-content/uploads/2021/11/3..png',
-      heading: 'Annual Alumni Meet 2024',
+      heading: 'Annual Alumni Meet 2023',
       subheading: 'Reconnect, Reminisce, Inspire',
       text: 'Join us for a day of nostalgia and networking at VCET campus. Share your success stories and inspire the next generation of engineers.',
       date: 'December 15, 2023',
