@@ -95,9 +95,13 @@ const loginUser = asyncHandler(async (req, res) => {
   const user = await User.findOne({
     $or: [{ username }, { email }],
   });
-
+  
   if (!user) {
     return res.status(400).json(new ApiError(400, "User does not exist"));
+  }
+
+  if (user.verified === false) {
+    return res.status(403).json(new ApiError(403, "User is not verified. Please verify your account."));
   }
 
   const isPasswordvalid = await user.isPasswordCorrect(password);
