@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, Calendar, MapPin, Users, Award, FileText } from 'lucide-react';
+import { ChevronDown, ChevronUp, Calendar,DollarSign  , MapPin, Users, Award, FileText } from 'lucide-react';
 
 const DetailedAboutUs = () => {
     const [openSection, setOpenSection] = useState('');
@@ -73,22 +73,22 @@ const DetailedAboutUs = () => {
                             VCET takes pride in its accomplished alumni who have made significant contributions in various fields. Here are some of our notable alumni:
                         </p>
                         <NewsletterItem
-                            title="Priya Sharma"
-                            date="Batch of 2010"
-                            image="https://img.freepik.com/premium-vector/people-profile-icon_24877-40756.jpg"
-                            description="Senior Software Engineer at Google"
+                            title="Akshay Vartak"
+                            date="Batch of 2007"
+                            image="https://vcet.edu.in/wp-content/uploads/2021/12/alumini_01.png"
+                            description="SPITZEN GROUP (Co-Founder and Director, Business Development and Operations)"
                         />
                         <NewsletterItem
-                            title="Rahul Desai"
-                            date="Batch of 2008"
-                            image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnSA1zygA3rubv-VK0DrVcQ02Po79kJhXo_A&s"
-                            description="Product Manager at Microsoft"
+                            title="	Gauri Parkar"
+                            date="Batch of 2017"
+                            image="https://vcet.edu.in/wp-content/uploads/2022/01/alumni_05.png"
+                            description="FedEx Engineering and quality specialist"
                         />
                         <NewsletterItem
-                            title="Anita Patel"
-                            date="Batch of 2015"
-                            image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnSA1zygA3rubv-VK0DrVcQ02Po79kJhXo_A&s"
-                            description="Mechanical Design Engineer at Tesla"
+                            title="Asmit Ganesh Gamre"
+                            date="Batch of 2017"
+                            image="https://vcet.edu.in/wp-content/uploads/2022/01/alumni_06.png"
+                            description="University of Wollongong Master of Engineering Management"
                         />
                     </Section>
 
@@ -112,7 +112,7 @@ const DetailedAboutUs = () => {
                             title="Cultivating a Culture of Excellence at Vidyavardhini College"
                             date="May 2023"
                             image="https://vcet.edu.in/wp-content/uploads/2022/07/Dr.Thaksen-Parvat.jpg"
-                            description="Latest breakthroughs in mechanical engineering."
+                            description="Latest breakthroughs in Information Technology."
                         />
                     </Section>
 
@@ -124,9 +124,9 @@ const DetailedAboutUs = () => {
 
                         <h3 className="text-lg font-semibold mt-4">Recent Newsletters</h3>
                         <NewsletterItem
-                            title="Innovations and Inspirations - VCET Bulletin - July 2024"
+                            title="Innovations for Inspirations - VCET Bulletin - July 2024"
                             date="July 2024"
-                            image="https://vcet.edu.in/wp-content/uploads/2024/07/bulletin_july_2024.png"
+                            image="https://yt3.googleusercontent.com/ytc/AIdro_naou0I-Ohuilbdn4F3D4o9kjlOrpQ-FSOZEhZkpxDZCBI=s900-c-k-c0x00ffffff-no-rj"
                             description="Insights on the recent VCET Tech Fest, workshops on emerging technologies, and alumni success stories."
                         />
 
@@ -134,14 +134,14 @@ const DetailedAboutUs = () => {
                         <NewsletterItem
                             title="Empowering Futures - VCET Bulletin - April 2024"
                             date="April 2024"
-                            image="https://vcet.edu.in/wp-content/uploads/2024/04/bulletin_april_2024.png"
+                            image="https://sendat.academy/wp-content/uploads/2023/06/Empowering-Furures-v2-Logo.png"
                             description="Recap of the annual tech symposium, student achievements, and collaborations with industry partners."
                         />
 
                         <NewsletterItem
                             title="New Beginnings - VCET Bulletin - January 2024"
                             date="January 2024"
-                            image="https://vcet.edu.in/wp-content/uploads/2024/01/bulletin_january_2024.png"
+                            image="https://st2.depositphotos.com/2393921/6559/i/950/depositphotos_65591231-stock-photo-concept-for-a-new-beginning.jpg"
                             description="Kick-off the year with updates on new courses, faculty achievements, and the upcoming VCET Innovation Summit."
                         />
 
@@ -149,13 +149,13 @@ const DetailedAboutUs = () => {
                         <NewsletterItem
                             title="Navigating Change - VCET Bulletin - October 2023"
                             date="October 2023"
-                            image="https://vcet.edu.in/wp-content/uploads/2023/10/bulletin_october_2023.png"
+                            image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9tNMRhSxoKRra44UUputFY7y3NbxSoBt74A&s"
                             description="Highlights from the start of the semester, including new initiatives and events in the IT department."
                         />
                     </Section>
 
 
-                    <Section title="Donations" id="donations" icon={MapPin}>
+                    <Section title="Donations" id="donations" icon={DollarSign  }>
                         <p className="text-gray-700 mb-4">
                             Contribute to the growth and development of VCET by donating to our scholarship fund, infrastructure development, or research initiatives. Every contribution helps us create a better future for our students.
                         </p>
