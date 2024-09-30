@@ -207,7 +207,7 @@ const ContributeArticle = () => {
     };
 
     return (
-        <div className="max-w-4xl mx-auto p-8 bg-[#ede8f5] rounded-lg shadow-lg">
+        <div className="max-w-4xl mx-auto p-8  mt-4 mb-4 bg-[#ede8f5] rounded-lg shadow-lg">
             <h1 className="text-3xl font-bold text-center text-[#3d52a0] mb-6">Contribute an Article</h1>
 
             <ToastContainer />
