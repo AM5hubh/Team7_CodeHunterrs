@@ -4,12 +4,12 @@ const AlumniShowcase = () => {
     const alumni = [
         { name: 'Accenture', logo: 'https://i.ibb.co/3TNCPT8/Accenture.png' },
         { name: 'Bristlecone', logo: 'https://i.ibb.co/94QdvJS/Bristlecone.png' },
-        { name: 'ContentStack', logo: 'https://i.ibb.co/XDMN0dT/content-Stack.png' },
+        { name: 'ContentStack', logo: 'https://i.ibb.co/gvx2rgn/content-Stack1-png.jpg' },
         { name: 'Tata Consultancy Services', logo: 'https://i.ibb.co/xMZBmST/TCS.png' },
         { name: 'Infosys', logo: 'https://i.ibb.co/qmmtTs2/Infosys.png' },
         { name: 'Wipro', logo: 'https://i.ibb.co/vhdDhnM/Wipro.png' },
         { name: 'Tech Mahindra', logo: 'https://i.ibb.co/mqb4NJD/Tech-Mahindra.png' },
-        { name: 'Zeus-Learning', logo: 'https://i.ibb.co/hyqY9Bm/Zeus-Learning.png' }
+        { name: 'Zeus-Learning', logo: 'https://i.ibb.co/MNStCWN/Zeus-Learning1.png' }
     ];
 
     return (
