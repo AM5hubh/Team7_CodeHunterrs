@@ -9,6 +9,7 @@ import Signup from './Pages/Auth/Signup/Signup.jsx'
 import StartupMentorshipSection from './Pages/Home/StartupMentorshipSection.jsx'
 import Contribution from './Pages/Alumini/Contribution.jsx'
 import UserCards from './Pages/Alumini/UserCards.jsx'
+import ContributeArticle from './Pages/Alumini/ContributeArticle.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,7 +21,10 @@ const router = createBrowserRouter(
       <Route path='/' element={<Home />} />
       <Route path='login' element={<Login />} />
       <Route path='signup' element={<Signup />} />
-      <Route path="/contribution" element={<Contribution />} /> {/* Add this line */}
+      <Route path="/contribution" element={<Contribution />} />
+      <Route path="/contributearticle" element={<ContributeArticle />} />
+
+      {/* Add this line */}
       <Route path="/startupmentorshipsection" element={<StartupMentorshipSection />} />
       <Route path="/aluminilist" element={<UserCards />} />
 

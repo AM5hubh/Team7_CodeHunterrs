@@ -101,7 +101,7 @@ const BusinessSection = () => {
     ];
 
     return (
-        <div className="py-10 px-4 max-w-6xl mx-auto bg-[#ede8f5]">
+        <div className="py-10 px-4 max-w-6xl mx-auto rounded-md bg-[#ede8f5]">
             {/* <h5 className="text-[#3d52a0] uppercase tracking-wider font-bold text-center">BUSINESS</h5> */}
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 text-[#3d52a0] text-center">ENGAGING WITH VCET COMMUNITY</h1>
 
