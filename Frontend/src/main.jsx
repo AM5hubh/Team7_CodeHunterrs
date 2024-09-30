@@ -16,7 +16,9 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout />}>
       <Route path='' element={<Home />} />
-      <Route path='login' element={<Login />} />
+
+      <Route path='/' element={<Home />} />
+  <Route path='login' element={<Login />} />
       <Route path='signup' element={<Signup />} />
       {/* <Route path="about" element={<About />} />
       <Route path='programs/' />
@@ -29,6 +31,6 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={ router } />
+    <RouterProvider router={router} />
   </React.StrictMode>,
 )

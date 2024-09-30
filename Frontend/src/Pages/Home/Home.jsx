@@ -1,6 +1,12 @@
 import React, { useContext, useState } from "react";
 import BusinessSection from "./BusinessSection";
 import DetailedAboutUs from "./About";
+
+
+
+import ContributeArticle from "../Alumini/ContributeArticle";
+import ListArticles from "./ListArticles";
+
 import AlumniCarousel from "../../Components/Carousel/AlumniCarousel.jsx";
 // import axios from 'axios';
 // import CarouselComponent from "../CarouselComponent/CarouselComponent.jsx";
@@ -15,7 +21,11 @@ const Home = () => {
     <AlumniCarousel />
     <DetailedAboutUs />
       <BusinessSection />
-      
+
+      <ContributeArticle />
+      <ListArticles />
+
+
     </>
   );
 };
