@@ -8,6 +8,7 @@ import adminRouter from "./routes/admin.routes.js";
 
 import articleRouter from "./routes/article.routes.js"
 
+
 const app = express()
 
 app.use(cors({

@@ -4,6 +4,7 @@ import DetailedAboutUs from "./About";
 
 import ContributeArticle from "../Alumini/ContributeArticle";
 import ListArticles from "./ListArticles";
+import AlumniShowcase from "./AluminiShowcase";
 
 // import axios from 'axios';
 // import CarouselComponent from "../CarouselComponent/CarouselComponent.jsx";
@@ -15,11 +16,12 @@ const Home = () => {
   return (
 
     <>
-    <DetailedAboutUs />
+      <DetailedAboutUs />
       <BusinessSection />
 
       <ContributeArticle />
       <ListArticles />
+      <AlumniShowcase />
 
 
     </>
