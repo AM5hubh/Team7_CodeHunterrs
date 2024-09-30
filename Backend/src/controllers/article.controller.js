@@ -1,6 +1,6 @@
 import { v2 as cloudinary } from 'cloudinary';
 
-import Article from '../models/article.js';
+import Article from '../models/article.model.js';
 
 // Configure Cloudinary
 cloudinary.config({

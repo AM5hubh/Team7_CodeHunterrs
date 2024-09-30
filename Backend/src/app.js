@@ -33,6 +33,12 @@ app.use("/api/alumni", alumniRouter);
 
 app.use("/api/v1/admin", adminRouter);
 app.use('/api/articles', articleRouter);
+
+
+
+
+
+
 //http://localhost:8000/api/v1/users/register
 
 
