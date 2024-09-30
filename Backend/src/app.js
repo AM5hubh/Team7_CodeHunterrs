@@ -4,7 +4,9 @@ import cookieParser from "cookie-parser"
 import { errorHandler } from "./middlewares/errorHandler.js"
 import userRouter from './routes/user.routes.js'
 import alumniRouter from "./routes/alumini.router.js";
-import adminRouter from "./routes/admin.routes.js"
+import adminRouter from "./routes/admin.routes.js";
+
+import articleRouter from "./routes/article.routes.js"
 
 const app = express()
 
@@ -13,14 +15,14 @@ app.use(cors({
     credentials: true
 }))
 
-app.use(express.json({limit: "16kb"}))
-app.use(express.urlencoded({extended: true, limit: "16kb "}))
+app.use(express.json({ limit: "16kb" }))
+app.use(express.urlencoded({ extended: true, limit: "16kb " }))
 app.use(express.static('public'))
 app.use(cookieParser())
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
-       next();
- });
+    next();
+});
 
 app.use(errorHandler);
 
@@ -28,8 +30,11 @@ app.use(errorHandler);
 //routes declaration
 app.use("/api/v1/users", userRouter) // goes to user.routes.js
 app.use("/api/alumni", alumniRouter);
+
 app.use("/api/v1/admin", adminRouter);
+app.use('/api/articles', articleRouter);
 //http://localhost:8000/api/v1/users/register
 
 
-export {app}
+
+export { app }
