@@ -6,27 +6,28 @@ const BusinessSection = () => {
             title: "Startups/Mentorship",
             description: "Support for the Startups or looking for mentors from the community?",
             icon: "🚀",
-            img: "/api/placeholder/300/200?text=Startups",
+            img: "https://scontent.fbom20-2.fna.fbcdn.net/v/t39.30808-6/301390543_145401481512876_887003241309337346_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=VSSuFpQLSgoQ7kNvgFMOoXi&_nc_ht=scontent.fbom20-2.fna&oh=00_AYBPhnNwl479j351-djZxW64MhzxUzlI42FKBNixEvxjXA&oe=6700B99E",
         },
         {
             title: "Partner With Us",
             description: "We work with companies and tailor programs to get visibility within our community.",
             icon: "🤝",
-            img: "/api/placeholder/300/200?text=Partnership",
+            img: "https://media.geeksforgeeks.org/wp-content/cdn-uploads/20221013161257/partnership1.png",
         },
         {
-            title: "Passing Through Singapore",
-            description: "Please share your schedule, and we will arrange a networking session.",
-            icon: "✈️",
-            img: "/api/placeholder/300/200?text=Singapore",
+            title: "Achievements",
+            description: "Celebrate our community's successes: 5 startups launched, 200+ mentorship sessions conducted, and 15 community events organized!",
+            icon: "🏆",
+            img: "https://www.mangaloretoday.com/contentfiles/2018/Feb%202018/Pro%20Karting%201%20mar%2018%203.jpg",
         },
         {
             title: "Community Events",
             description: "Join our upcoming community events to meet and learn from each other.",
             icon: "🎉",
-            img: "/api/placeholder/300/200?text=Events",
+            img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQFSCuheGqq_g5-E15AP5Mc8M9OTxaHTQyMw&s",
         },
     ];
+    
 
     return (
         <div className="py-10 px-4 max-w-6xl mx-auto bg-[#ede8f5]">
