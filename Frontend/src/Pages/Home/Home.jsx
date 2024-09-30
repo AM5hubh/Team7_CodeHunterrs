@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import BusinessSection from "./BusinessSection";
+import DetailedAboutUs from "./About";
 // import axios from 'axios';
 // import CarouselComponent from "../CarouselComponent/CarouselComponent.jsx";
 // import { UserContext } from "../../../context/userContext.jsx";
@@ -10,7 +11,9 @@ const Home = () => {
   return (
 
     <>
+    <DetailedAboutUs />
       <BusinessSection />
+      
     </>
   );
 };
