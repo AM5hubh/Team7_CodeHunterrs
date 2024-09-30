@@ -6,16 +6,10 @@ import { verifyJWT } from "../middlewares/auth.middleware.js";
 const router = Router()
 
 router.route("/register").post(
-    upload.fields([      //midleware multer
-        // {
-        //     name: "avatar",
-        //     maxCount: 1
-        // },
-        // {
-        //     name: "coverImage",
-        //     maxCount: 1 
-        // }
-    ]),
+    upload.fields([    
+        { name: "profile", maxCount: 1 }, 
+        { name: "coverImage", maxCount: 1 } 
+      ]),
     registerUser
 ) //called from app.js
 
