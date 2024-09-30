@@ -2,7 +2,7 @@ import React from 'react';
 
 const VCETAlumniConnect = () => {
     return (
-        <div className="bg-purple-800 text-white p-4 rounded-lg shadow-lg max-w-4xl mx-auto my-8">
+        <div className="bg-blue-900 text-white p-4 rounded-lg shadow-lg max-w-4xl mx-auto my-8">
             <div className="flex justify-between items-center mb-4">
                 <div className="text-2xl font-bold">VCET Alumni</div>
                 <div className="text-xl">1995-2024</div>
@@ -18,7 +18,7 @@ const VCETAlumniConnect = () => {
                     CHECK STATUS
                 </button>
                 <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded">
-                    JOIN/RENEW
+                    JOIN
                 </button>
                 <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
                     SEARCH ALUMNI
