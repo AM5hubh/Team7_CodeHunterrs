@@ -4,6 +4,8 @@ import cookieParser from "cookie-parser"
 import { errorHandler } from "./middlewares/errorHandler.js"
 import userRouter from './routes/user.routes.js'
 import alumniRouter from "./routes/alumini.router.js";
+import adminRouter from "./routes/admin.routes.js";
+
 import articleRouter from "./routes/article.routes.js"
 
 const app = express()
@@ -28,8 +30,9 @@ app.use(errorHandler);
 //routes declaration
 app.use("/api/v1/users", userRouter) // goes to user.routes.js
 app.use("/api/alumni", alumniRouter);
-app.use('/api/articles', articleRouter);
 
+app.use("/api/v1/admin", adminRouter);
+app.use('/api/articles', articleRouter);
 //http://localhost:8000/api/v1/users/register
 
 

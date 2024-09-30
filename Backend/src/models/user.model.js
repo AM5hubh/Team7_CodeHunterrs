@@ -25,26 +25,41 @@ const userSchema = new Schema(
       trim: true,
       index: true, //for search optimisation
     },
-    // avatar: {
-    //   type: String, //cloudinary url
-    // },
-    // coverImage: {
-    //   type: String,
-    // },
-    // watchHistory: [
-    //   {
-    //     type: Schema.Types.ObjectId,
-    //     ref: "Video",
-    //   },
-    // ],
+    education: {
+      type: String,
+      required: true,
+    },
+    location: {
+      type: String,
+      required: true,
+    },
+    yearOfPassout: {
+      type: String,
+      required: true,
+    },
+    profession: {
+      type: String,
+      required: true,
+    },
+    phone: {
+      type: String,
+      required: true,
+    },
     password: {
       type: String,
       required: [true, "Password is required"],
+    },
+    profile: {
+      type: String, 
+    },
+    coverImage: {
+      type: String, 
     },
     refreshToken: {
       type: String,
     },
     verified: Boolean,
+    adminverified: Boolean,
   },
   {
     timestamps: true,
