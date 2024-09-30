@@ -25,12 +25,11 @@ const Home = () => {
       <DetailedAboutUs />
       <VCETAlumniConnect />
       <BusinessSection />
-
-
-      <ContributeArticle />
-      <ListArticles />
       <AlumniShowcase />
-      <UserCards />
+
+      {/* <ContributeArticle />
+      <ListArticles />
+       */}
 
     </>
   );

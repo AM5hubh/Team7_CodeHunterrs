@@ -159,11 +159,10 @@ const DetailedAboutUs = () => {
                         <p className="text-gray-700 mb-4">
                             Contribute to the growth and development of VCET by donating to our scholarship fund, infrastructure development, or research initiatives. Every contribution helps us create a better future for our students.
                         </p>
-                        <a href="http://localhost:5173/contribution">
-                            <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-                                Donate Now
-                            </button>
+                        <a href="/contribution" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 inline-block">
+                            Donate Now
                         </a>
+
                     </Section>
                 </div>
             </div>

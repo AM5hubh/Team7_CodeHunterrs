@@ -8,6 +8,7 @@ import Login from './Pages/Auth/Login/Login.jsx'
 import Signup from './Pages/Auth/Signup/Signup.jsx'
 import StartupMentorshipSection from './Pages/Home/StartupMentorshipSection.jsx'
 import Contribution from './Pages/Alumini/Contribution.jsx'
+import UserCards from './Pages/Alumini/UserCards.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -21,6 +22,7 @@ const router = createBrowserRouter(
       <Route path='signup' element={<Signup />} />
       <Route path="/contribution" element={<Contribution />} /> {/* Add this line */}
       <Route path="/startupmentorshipsection" element={<StartupMentorshipSection />} />
+      <Route path="/aluminilist" element={<UserCards />} />
 
       <Route path='*' element={<h1 className='text-center text-3xl text-bold'>Not Found</h1>} />
     </Route>

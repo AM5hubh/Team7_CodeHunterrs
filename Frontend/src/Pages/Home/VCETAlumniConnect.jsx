@@ -1,4 +1,5 @@
 import React from 'react';
+import UserCards from '../Alumini/UserCards';
 
 const VCETAlumniConnect = () => {
     return (
@@ -11,7 +12,7 @@ const VCETAlumniConnect = () => {
                 CONNECT TO ALUMNI COMMUNITY
             </h1>
             <div className="text-center mb-4">
-                <p className="text-lg mb-2">Vidya Vardhini's College of Engineering and Technology</p>
+                <p className="text-lg mb-2">VidyaVardhini's College of Engineering and Technology</p>
             </div>
             <div className="flex flex-wrap justify-center gap-4">
                 <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
@@ -20,9 +21,9 @@ const VCETAlumniConnect = () => {
                 <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded">
                     JOIN
                 </button>
-                <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+                <a href='/aluminilist' className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
                     SEARCH ALUMNI
-                </button>
+                </a>
             </div>
         </div>
     );

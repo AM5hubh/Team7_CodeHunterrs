@@ -29,16 +29,75 @@ const UserCards = () => {
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
             {users.map(user => (
-                <div key={user._id} className="bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105">
-                    <div className="p-6">
-                        <h3 className="text-xl font-bold text-blue-600">{user.fullname}</h3>
-                        <p className="text-gray-700">Email: <span className="font-medium">{user.email}</span></p>
-                        <p className="text-gray-700">Education: <span className="font-medium">{user.education}</span></p>
-                        <p className="text-gray-700">Location: <span className="font-medium">{user.location}</span></p>
-                        <p className="text-gray-700">Year of Passout: <span className="font-medium">{user.yearOfPassout}</span></p>
-                        <p className="text-gray-700">Profession: <span className="font-medium">{user.profession}</span></p>
-                        <p className="text-gray-700">Phone: <span className="font-medium">{user.phone}</span></p>
-                        <p className="text-gray-700">Verified: <span className="font-medium text-green-500">{user.verified ? 'Yes' : 'No'}</span></p>
+                <div
+                    key={user._id}
+                    className="bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105"
+                >
+                    <div className="flex flex-col p-6">
+                        {/* Avatar Icon */}
+                        {user.profile ? (
+                            <img
+                                src={user.profile}
+                                alt={`${user.fullname}'s avatar`}
+                                className="w-16 h-16 rounded-full border-2 border-gray-300 mb-4 mx-auto"
+                            />
+                        ) : (
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="64"
+                                height="64"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                className="w-16 h-16 rounded-full border-2 border-gray-300 mb-4 text-gray-400 mx-auto"
+                            >
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+                                <path d="M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                                <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855" />
+                            </svg>
+                        )}
+
+                        <h3 className="text-xl font-bold text-blue-600 text-center mb-2">
+                            {user.fullname}
+                        </h3>
+
+                        {/* User Information */}
+                        <div className="text-gray-700 space-y-1">
+                            <p>
+                                <span className="font-semibold">Email:</span>{' '}
+                                <span className="font-medium break-all">{user.email}</span>
+                            </p>
+                            <p>
+                                <span className="font-semibold">Education:</span>{' '}
+                                <span className="font-medium">{user.education}</span>
+                            </p>
+                            <p>
+                                <span className="font-semibold">Location:</span>{' '}
+                                <span className="font-medium">{user.location}</span>
+                            </p>
+                            <p>
+                                <span className="font-semibold">Year of Passout:</span>{' '}
+                                <span className="font-medium">{user.yearOfPassout}</span>
+                            </p>
+                            <p>
+                                <span className="font-semibold">Profession:</span>{' '}
+                                <span className="font-medium">{user.profession}</span>
+                            </p>
+                            <p>
+                                <span className="font-semibold">Phone:</span>{' '}
+                                <span className="font-medium break-all">{user.phone}</span>
+                            </p>
+                            <p>
+                                <span className="font-semibold">Verified:</span>{' '}
+                                <span className="font-medium text-green-500">
+                                    {user.verified ? 'Yes' : 'No'}
+                                </span>
+                            </p>
+                        </div>
                     </div>
                 </div>
             ))}
