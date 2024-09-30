@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +19,7 @@ const Navbar = () => {
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                <a href="#" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700">Home</a>
+                <NavLink to="/" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700">Home</NavLink>
                 <div className="relative">
                   <button onClick={toggleDropdown} className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 flex items-center">
                     Services
@@ -42,8 +42,8 @@ const Navbar = () => {
           </div>
           <div className="hidden md:block">
             <div className="ml-4 flex items-center md:ml-6">
-              <Link to="/login" className="bg-gray-700 hover:bg-gray-600 px-3 py-2 rounded-md text-sm font-medium">Login</Link>
-              <Link to="/signup" className="bg-blue-600 hover:bg-blue-500 px-3 py-2 rounded-md text-sm font-medium ml-2">Sign up</Link>
+              <NavLink to="/login" className="bg-gray-700 hover:bg-gray-600 px-3 py-2 rounded-md text-sm font-medium">Login</NavLink>
+              <NavLink to="/signup" className="bg-blue-600 hover:bg-blue-500 px-3 py-2 rounded-md text-sm font-medium ml-2">Sign up</NavLink>
             </div>
           </div>
           <div className="md:hidden flex items-center">
@@ -73,11 +73,11 @@ const Navbar = () => {
             <a href="#" className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700">Contact</a>
           </div>
           <div className="pt-4 pb-3 border-t border-gray-700">
-            <div className="flex items-center px-5">
-              <Link to="/login" className="bg-gray-700 hover:bg-gray-600 px-3 py-2 rounded-md text-base font-medium w-full">Login</Link>
+            <div className="flex items-center text-center px-5">
+              <NavLink to="/login" className="bg-gray-700 hover:bg-gray-600 px-3 py-2 rounded-md text-base font-medium w-full">Login</NavLink>
             </div>
-            <div className="mt-3 flex items-center px-5">
-              <button className="bg-blue-600 hover:bg-blue-500 px-3 py-2 rounded-md text-base font-medium w-full">Sign up</button>
+            <div className="mt-3 flex items-center text-center px-5">
+              <NavLink className="bg-blue-600 hover:bg-blue-500 px-3 py-2 rounded-md text-base font-medium w-full">Sign up</NavLink>
             </div>
           </div>
         </div>
