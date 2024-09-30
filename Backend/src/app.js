@@ -3,7 +3,7 @@ import cors from "cors"
 import cookieParser from "cookie-parser"
 import { errorHandler } from "./middlewares/errorHandler.js"
 import userRouter from './routes/user.routes.js'
-import alumniRouter from "./routes/alumni.router.js";
+import alumniRouter from "./routes/alumini.router.js";
 
 const app = express()
 

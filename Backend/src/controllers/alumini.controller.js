@@ -1,7 +1,9 @@
-const Alumni = require("../src/models/alumni.model");
-
+// const Alumni = require("../src/models/alumini.model");
+import { Alumni } from "../models/alumini.model.js";
 // Controller to handle fetching all alumni
-async function handleAllAlumni(req, res) {
+
+
+const handleAllAlumni = async(req, res) => {
   try {
     const alumni = await Alumni.find();
     res.status(200).send(alumni);
@@ -12,7 +14,7 @@ async function handleAllAlumni(req, res) {
 }
 
 // Controller to handle adding a new alumni
-async function handleAddAlumni(req, res) {
+const handleAddAlumni = async(req, res) => {
   try {
     const alumniData = {
       fullname: req.body.fullname,
@@ -25,7 +27,7 @@ async function handleAddAlumni(req, res) {
       profession: req.body.profession,
       coverImage: req.file ? req.file.path : null, // Handle file upload for cover image
     };
-
+    
     const newAlumni = new Alumni(alumniData);
     const result = await newAlumni.save();
     res.status(201).send(result); // Send status 201 for created resource
@@ -36,7 +38,7 @@ async function handleAddAlumni(req, res) {
 }
 
 // Export the controller functions
-module.exports = {
+export {
   handleAllAlumni,
   handleAddAlumni,
 };
