@@ -31,7 +31,8 @@ const Login = () => {
       );
       console.log(res);
       localStorage.setItem("accesstoken", res.data.accessToken);
-    //   window.location = "/";
+      localStorage.setItem("isAdmin", res.data.admin.admin);
+      window.location = "/private/admindashboard";
       // navigate("/");
       toast.success(res.data.message);
       // setShowOtpModal(true)
