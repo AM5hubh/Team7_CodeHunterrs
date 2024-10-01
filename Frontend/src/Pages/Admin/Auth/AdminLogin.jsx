@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import toast from "react-hot-toast";
 import axios from "axios";
@@ -19,9 +19,6 @@ const Login = () => {
       [name]: value,
     }));
   };
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []); // The empty array ensures this runs only once when the component mounts
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,12 +26,12 @@ const Login = () => {
     console.log("Login data:", formData);
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/v1/users/login",
+        "http://localhost:8000/api/v1/admin/login",
         formData
       );
       console.log(res);
-      localStorage.setItem("accesstoken", res.data.data.accessToken);
-      window.location = "/";
+      localStorage.setItem("accesstoken", res.data.accessToken);
+    //   window.location = "/";
       // navigate("/");
       toast.success(res.data.message);
       // setShowOtpModal(true)
@@ -50,15 +47,15 @@ const Login = () => {
 
   return (
     <div className="min-h-screen min-w-screen bg-gray-200 flex items-center justify-center py-12 sm:px-6 lg:px-8">
-      <div className="border rounded-xl p-4 shadow-2xl bg-[#ede8f5]">
+      <div className="border rounded-xl p-4 shadow-2xl bg-[#ede8f5] p-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <h2 className="mt-6 text-center text-5xl font-bold text-[#3d52a0]">
-            Sign in to your account
+            Admin Login
           </h2>
         </div>
 
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-          <div className=" py-8 px-4 sm:rounded-lg sm:px-10">
+          <div className=" py-8 sm:rounded-lg">
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label
