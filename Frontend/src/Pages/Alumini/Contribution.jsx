@@ -1,5 +1,5 @@
 // Contribution.jsx
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Contribution = () => {
     const [formData, setFormData] = useState({
@@ -35,7 +35,9 @@ const Contribution = () => {
         // Here you can handle the form submission, like sending the data to an API
         console.log(formData);
     };
-
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, []);
     return (
         <div className="py-10 px-4 max-w-6xl mx-auto bg-[#f5f5f5]">
             <h1 className="text-3xl font-bold mb-8 text-center text-[#3d52a0]">Contribution Page</h1>

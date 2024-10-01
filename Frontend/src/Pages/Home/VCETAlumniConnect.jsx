@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import UserCards from '../Alumini/UserCards';
 import { Link } from 'react-router-dom';
 
 const VCETAlumniConnect = () => {
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, []);
     return (
         <div className="bg-blue-900 text-white p-4 rounded-lg shadow-lg max-w-6xl mx-auto my-8">
             <div className="flex justify-between items-center mb-4">

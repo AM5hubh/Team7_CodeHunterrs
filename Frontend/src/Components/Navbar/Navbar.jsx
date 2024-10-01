@@ -1,13 +1,13 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { NavLink } from 'react-router-dom';
+import { NavLink,useLocation  } from 'react-router-dom';
 import { UserContext } from '../../../context/userContext.jsx';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const { user, setUser, logout } = useContext(UserContext);
-
+  const location = useLocation();
   const [showButton, setShowButton] = useState(false);
 
   const handleClick = () => {
@@ -16,7 +16,11 @@ const Navbar = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
-
+  useEffect(() => {
+    if (location.pathname === "/") {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [location.pathname]);
   return (
     <nav className="bg-gray-800 text-white sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
