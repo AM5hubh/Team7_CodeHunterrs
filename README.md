@@ -1,6 +1,6 @@
 # Alumni Engagement Platform
 
-## Team Code Hunterrs
+## Team CodeHunterrs
 
 ### Team Members:
 - **Shubham Sahamate**
