@@ -11,15 +11,6 @@ const AdminDashboard = () => {
 
   const tabs = [
     { id: 'user', label: 'User Management', icon: Users },
-    { id: 'relief', label: 'Disaster Relief', icon: AlertTriangle },
-    { id: 'donations', label: 'Donations', icon: DollarSign },
-    { id: 'content', label: 'Content', icon: FileText },
-    { id: 'analytics', label: 'Analytics', icon: BarChart2 },
-    { id: 'alerts', label: 'Alerts', icon: Bell },
-    { id: 'resources', label: 'Resources', icon: Package },
-    { id: 'feedback', label: 'Feedback', icon: MessageSquare },
-    { id: 'security', label: 'Security', icon: Shield },
-    { id: 'training', label: 'Training', icon: BookOpen },
   ];
 
   const renderTabContent = () => {

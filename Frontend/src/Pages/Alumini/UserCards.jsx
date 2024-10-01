@@ -45,6 +45,7 @@ const UserCards = () => {
   return (
     <div className="p-4">
       {/* Search Bar */}
+      <h1 className="text-4xl font-bold p-2">Search Alumini:-</h1>
       <div className="mb-6">
         <input
           type="text"

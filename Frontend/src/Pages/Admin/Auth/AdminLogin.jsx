@@ -60,6 +60,7 @@ const Login = () => {
       localStorage.removeItem("userId");
       toast.success(res.data.message);
       setShowOtpModal(false);
+      window.location = "/private/admindashboard";
     //   navigate("/login");
       
     } catch (err) {

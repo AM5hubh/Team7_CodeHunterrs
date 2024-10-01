@@ -46,6 +46,7 @@ const Navbar = () => {
                 </div> */}
                 <NavLink to="/contributearticle" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700">Contribute Articles</NavLink>
                 <NavLink to="/contribution" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700">Donation</NavLink>
+                <NavLink to="/aluminilist" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700">Search Alumini</NavLink>
               </div>
             </div>
           </div>
