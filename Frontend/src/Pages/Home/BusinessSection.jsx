@@ -90,6 +90,7 @@ const BusinessSection = () => {
             title: "Achievements",
             description: "Celebrate our community's successes: 5 startups launched, 200+ mentorship sessions conducted, and 15 community events organized!",
             icon: "🏆",
+            "link": "/achievementssection",
             img: "https://www.mangaloretoday.com/contentfiles/2018/Feb%202018/Pro%20Karting%201%20mar%2018%203.jpg",
         },
         {

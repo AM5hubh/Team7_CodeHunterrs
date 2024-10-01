@@ -13,7 +13,7 @@ const AlumniShowcase = () => {
     ];
 
     return (
-        <div className="container mx-auto px-4 py-8">
+        <div className="max-w-6xl mx-auto px-4 py-8">
             <h2 className="text-center text-xl sm:text-2xl md:text-3xl font-bold text-[#3d52a0] mb-2">OUR ALUMNI</h2>
             <h1 className="text-center text-2xl sm:text-3xl md:text-4xl font-bold mb-8 ">VCET GRADUATES AT TOP COMPANIES</h1>
 
