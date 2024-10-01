@@ -82,9 +82,9 @@ const ListArticles = () => {
             <h1 className="text-3xl font-bold text-center text-[#3d52a0] mb-4">All Articles</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {articles.map((article) => (
-                    <div key={article.id} className="bg-white rounded-lg shadow-lg p-4">
+                    <div key={article._id} className="bg-white rounded-lg shadow-lg p-4">
                         <img src={article.imageUrl} alt={article.title} className="w-full h-40 object-cover rounded-lg mb-4" />
-                        <Link to={`/articles/${article.id}`} className="text-xl text-[#3d52a0] hover:text-[#7091e5] font-semibold">
+                        <Link to={`/readarticle/${article._id}`} className="text-xl text-[#3d52a0] hover:text-[#7091e5] font-semibold">
                             {article.title}
                         </Link>
                         <p className="text-sm text-[#8697c4]">By: {article.author}</p>

@@ -178,7 +178,7 @@ const verifyOtp = async (req, res) => {
         .status(400)
         .json(new ApiError(400, "Empty OTP details are not allowed"));
     }
-
+    const admin = await Admin.findOne({ email });
     // Find user OTP verification record
     const userOtpRecord = await UserOtpVerification.findOne({ userId });
 
@@ -219,7 +219,7 @@ const verifyOtp = async (req, res) => {
     await UserOtpVerification.deleteMany({ userId });
 
     res.json({
-      Admin,
+      admin,
       status: "VERIFIED",
       message: `User email verified successfully.`,
     });
@@ -233,7 +233,7 @@ const verifyOtp = async (req, res) => {
 };
 
 const verifyLoginOtp = asyncHandler(async (req, res) => {
-  const { userId, otp } = req.body;
+  const { email, userId, otp } = req.body;
 
   // Check if userId or otp is missing
   if (!userId || !otp) {
@@ -244,6 +244,7 @@ const verifyLoginOtp = asyncHandler(async (req, res) => {
 
   // Find user OTP verification record
   const userOtpRecord = await UserOtpVerification.findOne({ userId });
+  const admin = await Admin.findOne({ email });
 
   // Check if no record is found or the record is already verified
   if (!userOtpRecord) {
@@ -279,13 +280,13 @@ const verifyLoginOtp = asyncHandler(async (req, res) => {
 
   // Clear OTP record
   await UserOtpVerification.deleteMany({ userId });
-
   // Set cookies and send response
   res
     .status(200)
     .cookie("accessToken", accessToken, { httpOnly: true, secure: true })
     .cookie("refreshToken", refreshToken, { httpOnly: true, secure: true })
     .json({
+      admin,
       message: "Admin logged in successfully",
       accessToken,
       refreshToken,

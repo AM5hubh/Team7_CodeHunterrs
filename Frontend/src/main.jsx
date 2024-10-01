@@ -16,6 +16,8 @@ import AchievementsPage from './Pages/Home/AchievementsPage.jsx'
 import AdminDashboard from './Pages/Admin/AdminDashboard.jsx'
 import Privateroutes from './Privateroutes.jsx'
 import AdminLogin from './Pages/Admin/Auth/AdminLogin.jsx'
+import ListArticles from './Pages/Home/ListArticles.jsx'
+import ReadArticle from './Pages/Home/ReadArticle.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -33,6 +35,8 @@ const router = createBrowserRouter(
       </Route>
       <Route path="/contributearticle" element={<ContributeArticle />} />
       <Route path="/adminlogin" element={<AdminLogin />} />
+      <Route path="/listarticle" element={<ListArticles />} />
+      <Route path="/readarticle/:id" element={<ReadArticle />} />
 
       {/* Add this line */}
       <Route path="/startupmentorshipsection" element={<StartupMentorshipSection />} />
