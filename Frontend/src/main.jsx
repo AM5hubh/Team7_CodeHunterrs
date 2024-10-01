@@ -13,7 +13,6 @@ import ContributeArticle from './Pages/Alumini/ContributeArticle.jsx'
 import Register from '../src/events/RegisterPage.jsx'
 import KnowMore from '../src/events/KnowMorePage.jsx'
 import AchievementsPage from './Pages/Home/AchievementsPage.jsx'
-import ProtectedRoute from './Components/ProtectedRoute.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,17 +24,14 @@ const router = createBrowserRouter(
       <Route path='/' element={<Home />} />
       <Route path='login' element={<Login />} />
       <Route path='signup' element={<Signup />} />
-
+      <Route path="/contribution" element={<Contribution />} />
+      <Route path="/contributearticle" element={<ContributeArticle />} />
 
       {/* Add this line */}
+      <Route path="/startupmentorshipsection" element={<StartupMentorshipSection />} />
       <Route path="/achievementssection" element={<AchievementsPage />} />
+      <Route path="/aluminilist" element={<UserCards />} />
 
-
-      {/* Protected routes */}
-      <Route path="/startupmentorshipsection" element={<ProtectedRoute element={<StartupMentorshipSection />} />} />
-      <Route path="/aluminilist" element={<ProtectedRoute element={<UserCards />} />} />
-      <Route path="/contribution" element={<ProtectedRoute element={<Contribution />} />} />
-      <Route path="/contributearticle" element={<ProtectedRoute element={<ContributeArticle />} />} />
 
 
       <Route path='*' element={<h1 className='text-center text-3xl text-bold'>Not Found</h1>} />
