@@ -28,7 +28,7 @@ const Navbar = () => {
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
                 <NavLink to="/" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700">Home</NavLink>
-                <div className="relative">
+                {/* <div className="relative">
                   <button onClick={toggleDropdown} className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 flex items-center">
                     Services
                     <ChevronDown className="ml-1 h-4 w-4" />
@@ -42,9 +42,9 @@ const Navbar = () => {
                       </div>
                     </div>
                   )}
-                </div>
-                <a href="#" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700">About</a>
-                <a href="#" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700">Contact</a>
+                </div> */}
+                <NavLink to="/contributearticle" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700">Contribute Articles</NavLink>
+                <NavLink to="/contribution" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700">Donation</NavLink>
               </div>
             </div>
           </div>

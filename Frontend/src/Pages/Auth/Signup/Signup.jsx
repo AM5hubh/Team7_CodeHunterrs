@@ -99,10 +99,10 @@ const Signup = () => {
 
   return (
     <>
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-green-600 to-purple-500 py-12 sm:px-6 lg:px-8 ">
-        <div className="border rounded-xl shadow-xl">
+      <div className="min-h-screen flex items-center justify-center bg-gray-200 py-12 sm:px-6 lg:px-8 ">
+        <div className="border rounded-xl shadow-2xl bg-[#ede8f5]">
           <div className="sm:mx-auto sm:w-full sm:max-w-md">
-            <h2 className="mt-6 text-center text-3xl font-extrabold text-white">
+            <h2 className="mt-6 text-center text-3xl font-extrabold text-black">
               Create a new account
             </h2>
           </div>
@@ -115,7 +115,7 @@ const Signup = () => {
                     <div>
                       <label
                         htmlFor="username"
-                        className="block text-sm font-medium text-white"
+                        className="block text-sm font-medium text-black"
                       >
                         Username
                       </label>
@@ -135,7 +135,7 @@ const Signup = () => {
                     <div>
                       <label
                         htmlFor="email"
-                        className="block text-sm font-medium text-white"
+                        className="block text-sm font-medium text-black"
                       >
                         Email address
                       </label>
@@ -156,7 +156,7 @@ const Signup = () => {
                     <div>
                       <label
                         htmlFor="fullname"
-                        className="block text-sm font-medium text-white"
+                        className="block text-sm font-medium text-black"
                       >
                         Full Name
                       </label>
@@ -176,7 +176,7 @@ const Signup = () => {
                     <div>
                       <label
                         htmlFor="education"
-                        className="block text-sm font-medium text-white"
+                        className="block text-sm font-medium text-black"
                       >
                         Education
                       </label>
@@ -196,7 +196,7 @@ const Signup = () => {
                     <div>
                       <label
                         htmlFor="location"
-                        className="block text-sm font-medium text-white"
+                        className="block text-sm font-medium text-black"
                       >
                         Location
                       </label>
@@ -216,7 +216,7 @@ const Signup = () => {
                     <div>
                       <label
                         htmlFor="yearOfPassout"
-                        className="block text-sm font-medium text-white"
+                        className="block text-sm font-medium text-black"
                       >
                         Year of Passout
                       </label>
@@ -237,7 +237,7 @@ const Signup = () => {
                     <div>
                       <label
                         htmlFor="profession"
-                        className="block text-sm font-medium text-white"
+                        className="block text-sm font-medium text-black"
                       >
                         Profession
                       </label>
@@ -257,7 +257,7 @@ const Signup = () => {
                     <div>
                       <label
                         htmlFor="phone"
-                        className="block text-sm font-medium text-white"
+                        className="block text-sm font-medium text-black"
                       >
                         Phone
                       </label>
@@ -277,7 +277,7 @@ const Signup = () => {
                     <div>
                       <label
                         htmlFor="password"
-                        className="block text-sm font-medium text-white"
+                        className="block text-sm font-medium text-black"
                       >
                         Password
                       </label>
@@ -309,7 +309,7 @@ const Signup = () => {
                     <div>
                       <label
                         htmlFor="profile"
-                        className="block text-sm font-medium text-white"
+                        className="block text-sm font-medium text-black"
                       >
                         Profile Picture URL
                       </label>
@@ -328,7 +328,7 @@ const Signup = () => {
                     <div>
                       <label
                         htmlFor="coverImage"
-                        className="block text-sm font-medium text-white"
+                        className="block text-sm font-medium text-black"
                       >
                         Cover Image URL
                       </label>

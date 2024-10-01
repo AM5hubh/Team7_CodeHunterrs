@@ -81,7 +81,7 @@ const loginAdmin = asyncHandler(async (req, res) => {
       .status(200)
       .cookie("accessToken", accessToken, { httpOnly: true, secure: true })
       .cookie("refreshToken", refreshToken, { httpOnly: true, secure: true })
-      .json({ message: "Admin logged in successfully", accessToken, refreshToken });
+      .json({ message: "Admin logged in successfully", admin, accessToken, refreshToken });
   });
   
 

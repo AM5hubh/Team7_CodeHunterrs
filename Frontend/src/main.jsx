@@ -13,6 +13,9 @@ import ContributeArticle from './Pages/Alumini/ContributeArticle.jsx'
 import Register from '../src/events/RegisterPage.jsx'
 import KnowMore from '../src/events/KnowMorePage.jsx'
 import AchievementsPage from './Pages/Home/AchievementsPage.jsx'
+import AdminDashboard from './Pages/Admin/AdminDashboard.jsx'
+import Privateroutes from './Privateroutes.jsx'
+import AdminLogin from './Pages/Admin/Auth/AdminLogin.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,7 +28,11 @@ const router = createBrowserRouter(
       <Route path='login' element={<Login />} />
       <Route path='signup' element={<Signup />} />
       <Route path="/contribution" element={<Contribution />} />
+      <Route path="/private" element={<Privateroutes />} >
+      <Route path="admindashboard" element={<AdminDashboard />} />
+      </Route>
       <Route path="/contributearticle" element={<ContributeArticle />} />
+      <Route path="/adminlogin" element={<AdminLogin />} />
 
       {/* Add this line */}
       <Route path="/startupmentorshipsection" element={<StartupMentorshipSection />} />
