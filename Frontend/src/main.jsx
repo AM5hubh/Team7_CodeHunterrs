@@ -39,8 +39,6 @@ const router = createBrowserRouter(
       <Route path="/achievementssection" element={<AchievementsPage />} />
       <Route path="/aluminilist" element={<UserCards />} />
 
-      <Route path="/events/register/:eventId" element={<Register />} />
-      <Route path="/events/knowmore/:eventId" element={<KnowMore />} />
 
 
       <Route path='*' element={<h1 className='text-center text-3xl text-bold'>Not Found</h1>} />
