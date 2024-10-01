@@ -95,7 +95,7 @@ const loginUser = asyncHandler(async (req, res) => {
   const user = await User.findOne({
     $or: [{ username }, { email }],
   });
-  
+
   if (!user) {
     return res.status(400).json(new ApiError(400, "User does not exist"));
   }
@@ -220,6 +220,12 @@ const getCurrentUser = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, req.user, "User fetched successfully"));
 });
 
+// Get all users
+const getAllUser = asyncHandler(async (req, res) => {
+  const users = await User.find({}, '-password -refreshToken'); // Fetch all users from the database, excluding password and refresh token
+  return res.status(200).json(new ApiResponse(200, users, "All users fetched successfully"));
+});
+
 const sendOtpVerificationEmail = async ({ _id, email }, res) => {
   let transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
@@ -340,15 +346,15 @@ const verifyOtp = async (req, res) => {
   }
 };
 
-const resendOtpVerificationCode = async(req,res) => {
+const resendOtpVerificationCode = async (req, res) => {
   try {
-    let {userId,email} = req.body;
-    if(!userId || !email){
+    let { userId, email } = req.body;
+    if (!userId || !email) {
       return res.status(400).json(new ApiError(400, "Empty user details are not allowed"));
     }
-    else{
-      await UserOtpVerification.deleteMany({userId});
-      sendOtpVerificationEmail({_id: userId,email}, res)
+    else {
+      await UserOtpVerification.deleteMany({ userId });
+      sendOtpVerificationEmail({ _id: userId, email }, res)
     }
   } catch (error) {
     res.json({
@@ -365,5 +371,6 @@ export {
   refreshAccessToken,
   getCurrentUser,
   verifyOtp,
-  resendOtpVerificationCode
+  resendOtpVerificationCode,
+  getAllUser
 };
