@@ -151,7 +151,7 @@
 
 
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -205,7 +205,9 @@ const ContributeArticle = () => {
             toast.error('Failed to submit article. Please try again.');
         }
     };
-
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, []);
     return (
         <div className="max-w-4xl mx-auto p-8  mt-4 mb-4 bg-[#ede8f5] rounded-lg shadow-lg">
             <h1 className="text-3xl font-bold text-center text-[#3d52a0] mb-6">Contribute an Article</h1>
