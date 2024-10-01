@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import toast from "react-hot-toast";
 import axios from "axios";
@@ -19,6 +19,9 @@ const Login = () => {
       [name]: value,
     }));
   };
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []); // The empty array ensures this runs only once when the component mounts
 
   const handleSubmit = async (e) => {
     e.preventDefault();
