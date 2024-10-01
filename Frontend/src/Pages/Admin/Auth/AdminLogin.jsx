@@ -33,6 +33,7 @@ const Login = () => {
       );
       console.log(res);
       localStorage.setItem("userId", res.data.date.userId);
+      localStorage.setItem("email", res.data.date.email);
       //   localStorage.setItem("accesstoken", res.data.accessToken);
       //   localStorage.setItem("isAdmin", res.data.admin.admin);
       //   window.location = "/private/admindashboard";
@@ -50,14 +51,17 @@ const Login = () => {
     e.preventDefault();
     try {
       const userId = localStorage.getItem("userId");
+      const email = localStorage.getItem("email");
       const res = await axios.post(
         "http://localhost:8000/api/v1/admin/verifyLoginOtp",
-        { userId, otp }
+        { email, userId, otp }
       );
       console.log(res);
       localStorage.setItem("accesstoken", res.data.accessToken);
+      localStorage.setItem("admin", res.data.admin.admin);
     //   localStorage.setItem("isAdmin", res.data.admin.admin);
       localStorage.removeItem("userId");
+      localStorage.removeItem("email");
       toast.success(res.data.message);
       setShowOtpModal(false);
       window.location = "/private/admindashboard";
