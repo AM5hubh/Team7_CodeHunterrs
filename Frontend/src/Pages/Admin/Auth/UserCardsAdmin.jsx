@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const UserCards = () => {
+const UserCardsAdmin = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -24,6 +24,28 @@ const UserCards = () => {
 
     fetchUsers();
   }, []);
+
+  // Function to verify a user
+  const verifyUser = async (userId) => {
+    try {
+      const response = await axios.post(
+        `http://localhost:8000/api/v1/users/verify`, // Your verify endpoint
+        { userId } // Send user ID for verification
+      );
+
+      // Assuming the response contains the updated user data
+      const updatedUser = response.data.data;
+
+      // Update the users state with the verified user
+      setUsers((prevUsers) =>
+        prevUsers.map((user) => 
+          user._id === updatedUser._id ? updatedUser : user
+        )
+      );
+    } catch (err) {
+      setError("Failed to verify user");
+    }
+  };
 
   // Filter users based on search term (regex filter)
   const filteredUsers = users.filter((user) => {
@@ -126,6 +148,14 @@ const UserCards = () => {
                     {user.verified ? "Yes" : "No"}
                   </span>
                 </p>
+                {!user.verified && ( // Render the button only if the user is NOT verified
+                  <button
+                    onClick={() => verifyUser(user._id)} // Call verifyUser when clicked
+                    className="px-4 py-2 bg-indigo-500 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  >
+                    Verify
+                  </button>
+                )}
               </div>
             </div>
           </div>
@@ -135,4 +165,4 @@ const UserCards = () => {
   );
 };
 
-export default UserCards;
+export default UserCardsAdmin;

@@ -1,5 +1,6 @@
 import React from 'react';
 import UserCards from '../Alumini/UserCards';
+import { Link } from 'react-router-dom';
 
 const VCETAlumniConnect = () => {
     return (
@@ -21,9 +22,9 @@ const VCETAlumniConnect = () => {
                 <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded">
                     JOIN
                 </button>
-                <a href='/aluminilist' className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+                <Link to='/aluminilist' className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
                     SEARCH ALUMNI
-                </a>
+                </Link>
             </div>
         </div>
     );

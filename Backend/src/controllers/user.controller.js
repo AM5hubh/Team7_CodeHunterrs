@@ -364,6 +364,28 @@ const resendOtpVerificationCode = async (req, res) => {
   }
 }
 
+const verifyUser = async (req, res) => {
+  const { userId } = req.body;
+
+  try {
+    // Find the user by ID and update the verified status
+    const user = await User.findByIdAndUpdate(
+      userId,
+      { verified: true }, // Set verified to true
+      { new: true } // Return the updated user
+    );
+
+    if (!user) {
+      return res.status(404).json({ success: false, message: 'User not found' });
+    }
+
+    return res.status(200).json({ success: true, data: user });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ success: false, message: 'Server error' });
+  }
+};
+
 export {
   registerUser,
   loginUser,
@@ -372,5 +394,6 @@ export {
   getCurrentUser,
   verifyOtp,
   resendOtpVerificationCode,
-  getAllUser
+  getAllUser,
+  verifyUser
 };
