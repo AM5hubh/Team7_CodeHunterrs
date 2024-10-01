@@ -31,8 +31,8 @@ const Login = () => {
       );
       console.log(res);
       localStorage.setItem("accesstoken", res.data.data.accessToken);
-      // window.location = "/";
-      navigate("/");
+      window.location = "/";
+      // navigate("/");
       toast.success(res.data.message);
       // setShowOtpModal(true)
     } catch (err) {

@@ -61,6 +61,7 @@ const Signup = () => {
       toast.success("OTP verified successfully!");
       setShowOtpModal(false);
       navigate("/login");
+      localStorage.removeItem("userId");
     } catch (err) {
       toast.error("OTP verification failed. Please try again.");
     }
