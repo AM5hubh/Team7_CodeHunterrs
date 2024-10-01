@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
+  const [showOtpModal, setShowOtpModal] = useState(false);
+  const [otp, setOtp] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
@@ -30,18 +32,40 @@ const Login = () => {
         formData
       );
       console.log(res);
-      localStorage.setItem("accesstoken", res.data.accessToken);
-      localStorage.setItem("isAdmin", res.data.admin.admin);
-      window.location = "/private/admindashboard";
+      localStorage.setItem("userId", res.data.date.userId);
+      //   localStorage.setItem("accesstoken", res.data.accessToken);
+      //   localStorage.setItem("isAdmin", res.data.admin.admin);
+      //   window.location = "/private/admindashboard";
       // navigate("/");
       toast.success(res.data.message);
+      setShowOtpModal(true);
       // setShowOtpModal(true)
     } catch (err) {
-      toast.error(err.response.data.messagetext);
+        console.log(err)
+      toast.error("error occ",err);
     }
     // Here you would typically send the data to your backend for authentication
   };
-
+  const handleOtpSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const userId = localStorage.getItem("userId");
+      const res = await axios.post(
+        "http://localhost:8000/api/v1/admin/verifyLoginOtp",
+        { userId, otp }
+      );
+      console.log(res);
+      localStorage.setItem("accesstoken", res.data.accessToken);
+    //   localStorage.setItem("isAdmin", res.data.admin.admin);
+      localStorage.removeItem("userId");
+      toast.success(res.data.message);
+      setShowOtpModal(false);
+    //   navigate("/login");
+      
+    } catch (err) {
+      console.log(err)
+    }
+  };
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
@@ -123,6 +147,42 @@ const Login = () => {
           </div>
         </div>
       </div>
+      {showOtpModal && (
+        <div
+          className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full"
+          id="my-modal"
+        >
+          <div className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+            <div className="mt-3 text-center">
+              <h3 className="text-lg leading-6 font-medium text-gray-900">
+                Enter OTP
+              </h3>
+              <div className="mt-2 px-7 py-3">
+                <p className="text-sm text-gray-500">
+                  We've sent an OTP to your email. Please enter it below to
+                  verify your account.
+                </p>
+                <input
+                  type="text"
+                  className="mt-4 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm"
+                  value={otp}
+                  onChange={(e) => setOtp(e.target.value)}
+                  placeholder="Enter OTP"
+                />
+              </div>
+              <div className="items-center px-4 py-3">
+                <button
+                  id="ok-btn"
+                  className="px-4 py-2 bg-indigo-500 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  onClick={handleOtpSubmit}
+                >
+                  Verify OTP
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

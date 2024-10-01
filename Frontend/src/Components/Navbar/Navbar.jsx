@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { UserContext } from '../../../context/userContext.jsx';
 
 const Navbar = () => {
@@ -22,9 +22,10 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <div className="flex-shrink-0">
-              <span className="text-xl font-bold"><img src='/vcetlogo.png' className='w-16 h-16'/></span>
-            </div>
+            <NavLink to="/" className="flex items-center gap-2 cursor pointer">
+              <span className='text-blue-300 text-center font-bold'>LegacyNet</span>
+              <span className="text-xl font-bold"><img src='/vcetlogo.png' className='w-12 h-12'/></span>
+            </NavLink>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
                 <NavLink to="/" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700">Home</NavLink>
