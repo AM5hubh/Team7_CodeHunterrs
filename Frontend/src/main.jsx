@@ -12,6 +12,7 @@ import UserCards from './Pages/Alumini/UserCards.jsx'
 import ContributeArticle from './Pages/Alumini/ContributeArticle.jsx'
 import Register from '../src/events/RegisterPage.jsx'
 import KnowMore from '../src/events/KnowMorePage.jsx'
+import AchievementsPage from './Pages/Home/AchievementsPage.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,6 +29,7 @@ const router = createBrowserRouter(
 
       {/* Add this line */}
       <Route path="/startupmentorshipsection" element={<StartupMentorshipSection />} />
+      <Route path="/achievementssection" element={<AchievementsPage />} />
       <Route path="/aluminilist" element={<UserCards />} />
 
       <Route path="/events/register/:eventId" element={<Register />} />
