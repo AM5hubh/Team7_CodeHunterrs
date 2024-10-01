@@ -3,7 +3,7 @@ import UserCards from '../Alumini/UserCards';
 
 const VCETAlumniConnect = () => {
     return (
-        <div className="bg-blue-900 text-white p-4 rounded-lg shadow-lg max-w-4xl mx-auto my-8">
+        <div className="bg-blue-900 text-white p-4 rounded-lg shadow-lg max-w-6xl mx-auto my-8">
             <div className="flex justify-between items-center mb-4">
                 <div className="text-2xl font-bold">VCET Alumni</div>
                 <div className="text-xl">1995-2024</div>

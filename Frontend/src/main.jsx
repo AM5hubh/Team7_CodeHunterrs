@@ -10,6 +10,8 @@ import StartupMentorshipSection from './Pages/Home/StartupMentorshipSection.jsx'
 import Contribution from './Pages/Alumini/Contribution.jsx'
 import UserCards from './Pages/Alumini/UserCards.jsx'
 import ContributeArticle from './Pages/Alumini/ContributeArticle.jsx'
+import Register from '../src/events/RegisterPage.jsx'
+import KnowMore from '../src/events/KnowMorePage.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -27,6 +29,10 @@ const router = createBrowserRouter(
       {/* Add this line */}
       <Route path="/startupmentorshipsection" element={<StartupMentorshipSection />} />
       <Route path="/aluminilist" element={<UserCards />} />
+
+      <Route path="/events/register/:eventId" element={<Register />} />
+      <Route path="/events/knowmore/:eventId" element={<KnowMore />} />
+
 
       <Route path='*' element={<h1 className='text-center text-3xl text-bold'>Not Found</h1>} />
     </Route>

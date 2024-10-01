@@ -11,7 +11,7 @@ import AlumniShowcase from "./AluminiShowcase";
 import AlumniCarousel from "../../Components/Carousel/AlumniCarousel.jsx";
 import VCETAlumniConnect from "./VCETAlumniConnect.jsx";
 import UserCards from "../Alumini/UserCards.jsx";
-import EventCard from "./EventCard.jsx";
+import EventCard from "../../events/EventCard.jsx";
 // import axios from 'axios';
 // import CarouselComponent from "../CarouselComponent/CarouselComponent.jsx";
 // import { UserContext } from "../../../context/userContext.jsx";
