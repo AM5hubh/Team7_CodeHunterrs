@@ -6,7 +6,7 @@ const UserCards = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [searchTerm, setSearchTerm] = useState(''); // State for the search term
-
+    
     // Fetch users data from the backend
     useEffect(() => {
         const fetchUsers = async () => {

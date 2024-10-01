@@ -1,4 +1,5 @@
 
+import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 
 const StartupMentorshipSection = () => {
@@ -18,12 +19,20 @@ const StartupMentorshipSection = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('Form submitted:', formData);
-        // Here you would typically send the data to a server
-    };
 
+// Assuming this function is triggered on form submission
+const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+        const response = await axios.post('http://localhost:8000/api/send-email', formData); // Use formData from state
+        console.log(response.data); // Handle success
+    } catch (error) {
+        console.error('Error sending email:', error.response.data); // Log the error details
+    }
+};
+
+    
     return (
         <div className="bg-gray-100 py-12">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -34,7 +43,7 @@ const StartupMentorshipSection = () => {
                             <p className="text-lg mb-4">Support for Startups or looking for mentors from the community?</p>
                             <p className="text-xl font-semibold text-purple-600 mb-6">Contact us: startup.support@example.com</p>
                             <div className="hidden md:block">
-                                <img src="https://via.placeholder.com/400x300" alt="Mentorship" className="rounded-lg shadow-md" />
+                                <img src="https://cdn-az.allevents.in/events7/banners/041a72f0-c528-11ee-bfbf-ad11fe500a7c-rimg-w720-h360-gmir.jpg" alt="Mentorship" className="rounded-lg shadow-md" />
                             </div>
                         </div>
                         <div className="md:w-1/2 p-8">
